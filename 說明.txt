@@ -1,0 +1,1 @@
+剛方法使用Chrome的Cookie登入，如無紀錄到Chrome，請先登入一次

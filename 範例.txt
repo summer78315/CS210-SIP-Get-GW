@@ -1,0 +1,45 @@
+Cookies無法add
+https://blog.csdn.net/weixin_43919656/article/details/122109047
+下載firefox Driver
+https://github.com/mozilla/geckodriver/releases
+
+記得刪除cookies 中含有false True的資訊, ex:"hostOnly":false 
+
+from selenium import webdriver
+from time import sleep
+import json
+
+if __name__ == '__main__':
+    with open('cookies.json') as f:
+        cookies = json.load(f)
+    driver = webdriver.Chrome()
+    driver.get('https://192.168.5.1:5088/checkgw.php')
+    sleep(10)
+    for cookie in cookies:
+        driver.add_cookie(cookie)
+    driver.refresh()
+	
+
+
+
+範例二、"sameSite": 改為"Strict"才不會報錯
+
+from selenium import webdriver
+import time
+browser = webdriver.Firefox()
+cookies = [
+    {
+        "domain": "192.168.5.1",
+        "name": "PHPSESSID",
+        "path": "/",
+        "sameSite": "Strict",
+        "storeId": "0",
+        "value": "o3fphvul2bk35dk6ialqn26hm2",
+        "id": 1
+    }
+]
+browser.get('https://192.168.5.1:5088/checkgw.php')
+for cookie in cookies:
+    browser.add_cookie(cookie)
+time.sleep(5)
+browser.get('https://192.168.5.1:5088/checkgw.php')

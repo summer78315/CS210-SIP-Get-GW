@@ -1,0 +1,11 @@
+[
+{
+    "domain": "192.168.5.1",
+    "name": "PHPSESSID",
+    "path": "/",
+    "sameSite": "unspecified",
+    "storeId": "0",
+    "value": "o3fphvul2bk35dk6ialqn26hm2",
+    "id": 1
+}
+]
